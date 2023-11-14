@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Resources</title>
+    <link rel="icon" href="https://sp.yimg.com/ib/th?id=OPHS.R61OOWGgPmQDJQ474C474&o=5&pid=21.1&w=160&h=105" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        footer {
+            background-color: #33809c;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .main {
+            display: block;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #33809c;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #33809c;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .teacherInfo {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .teacherInfo p {
+            color: #555;
+        }
+
+        .back-button {
+            background-color: #33809c;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Welcome to school resources</h1>
+        <p>This is meant to help students navigate to important school websites</p>
+        <p>School home-pages usually have most of the needs, but here are even more</p>
+        <p>important resources for education.</p>
+        <p>I promise this is real you can check the whole website. No secrets, just want to help.</p>
+        <button onclick="forTeachers()">For Teachers</button>
+        <br>
+        <h2>School websites</h2>
+        <div class="buttons-container">
+            <button onclick="GoogleClassroom()">
+                <img src="https://lh6.googleusercontent.com/RegmzaPITCLxKf2qwznaj1ReDjkhcSjVSg2xhUfriAnBbdmF39ZZ1rIRrUugIW5TTFwfRQ=w1280" alt="Google Classroom">
+            </button>
+            <button onclick="GoogleDrive()">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.jfTtletnJh04iJSQkLbuIwAAAA&pid=Api&P=0&h=220" alt="Google Drive">
+            </button>
+            <button onclick="Quizlet()">
+                <img src="https://avatars3.githubusercontent.com/u/616547?s=200&v=4" alt="Quizlet">
+            </button>
+        </div>
+    </div>
+    <div class="teacherInfo">
+        <h1>Information</h1>
+        <p>Dear Teachers, parents, or whoever is reading this,</p>
+        <p>Please know that this is not meant as a distraction or way to secretly play games.</p>
+        <p>It is purely meant to make children's lives easier.</p>
+        <p>It just has some of the websites that children have to go to the URL bar to type in.</p>
+        <p>In my experience at school, it's a real pain to do that, so I have created this website with most of the harder-to-access websites</p>
+        <p>So in the end, please just know that if this website causes any harm or distractions, it's really not meant at all for that.</p>
+        <p>-Thanks,</p>
+        <p>BeanzMan</p>
+        <button class="back-button" onclick="goBack()">Back</button>
+    </div>
+    <footer>
+        &copy; 2023 BeanzMan. All rights reserved.
+    </footer>
+    <script>
+        function GoogleClassroom() {
+            window.open("https://classroom.google.com");
+        }
+        function GoogleDrive() {
+            window.open("https://drive.google.com");
+        }
+        function Quizlet() {
+            window.open("https://quizlet.com");
+        }
+
+        const Main = document.querySelector(".main");
+        const Info = document.querySelector(".teacherInfo");
+
+        function forTeachers() {
+            Main.style.display = "none";
+            Info.style.display = "block";
+        }
+
+        function goBack() {
+            Main.style.display = "block";
+            Info.style.display = "none";
+        }
+    </script>
+</body>
+</html>
