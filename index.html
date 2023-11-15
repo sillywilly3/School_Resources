@@ -113,6 +113,17 @@
             cursor: pointer;
             border-radius: 4px;
         }
+
+        .main2 {
+            display: none;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
     </style>
 </head>
 <body>
@@ -135,6 +146,7 @@
             <button onclick="Quizlet()" alt="Quizlet">
                 <img src="https://avatars3.githubusercontent.com/u/616547?s=200&v=4" alt="Quizlet">
             </button>
+           
         </div>
     </div>
     <div class="teacherInfo">
@@ -148,6 +160,30 @@
         <p>-Thanks,</p>
         <p>BeanzMan</p>
         <button class="back-button" onclick="goBack()">Back</button>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <button style="z-index: 9999;" onclick="Open()"></button>
+    </div>
+    <div class="main2">
+        <h1>Welcome to school resources</h1>
+        <p>This is meant to help students navigate to important school websites</p>
+        <p>School home-pages usually have most of the needs, but here are even more</p>
+        <p>important resources for education.</p>
+        <p>I promise this is real you can check the whole website. No secrets, just want to help.</p>
+        <button>For Teachers</button>
+        <br>
+        <h2>School websites</h2>
+        <div class="buttons-container">
+            <button onclick="GoogleClassroomM()" alt="Google Classroom">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyv5WF21Jyq99Iw0VElQH6ItiNS7Go-lnXOM4JZZJtQdZNE7fYnzokobqEdxWYGCZzZ3w&usqp=CAU" alt="Google Classroom">
+            </button>
+            <button onclick="GoogleDriveM()" alt="Google Drive">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.jfTtletnJh04iJSQkLbuIwAAAA&pid=Api&P=0&h=220" alt="Google Drive">
+            </button>
+            <button onclick="QuizletM()" alt="Quizlet">
+                <img src="https://avatars3.githubusercontent.com/u/616547?s=200&v=4" alt="Quizlet">
+            </button>
+           
+        </div>
     </div>
     <footer>
         &copy; 2023 BeanzMan. All rights reserved.
@@ -175,6 +211,30 @@
             Main.style.display = "block";
             Info.style.display = "none";
         }
+
+        const Main2 = document.querySelector(".main2");
+
+        function Open() {
+            Main2.style.display = "block";
+            Info.style.display = "none";
+            Main.style.display = "none";
+        }
+            
+        function GoogleClassroomM() {
+            const audio = new Audio('https://ia904508.us.archive.org/8/items/100Hits2021/19.%20Blackbear%20-%20hot%20girl%20bummer.mp3');
+            audio.play();
+        }
+
+        function GoogleDriveM() {
+            const audio = new Audio('https://ia903408.us.archive.org/31/items/among-us-trap-remix-bass-boosted-leonz/Among%20Us%20Trap%20Remix%20Bass%20Boosted%20Leonz.mp3');
+            audio.play();
+        }
+
+        function QuizletM() {
+            const audio = new Audio('https://ia801600.us.archive.org/28/items/eminem-the-singles-boxset_202303/25.%20The%20Real%20Slim%20Shady.mp3');
+            audio.play();
+        }
+
     </script>
 </body>
 </html>
