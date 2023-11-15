@@ -124,6 +124,19 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 50px;
         }
+
+        .open-button {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 9999;
+            background-color: #33809c;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 0 4px 0 0;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -160,8 +173,7 @@
         <p>-Thanks,</p>
         <p>BeanzMan</p>
         <button class="back-button" onclick="goBack()">Back</button>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <button style="z-index: 9999;" onclick="Open()"></button>
+        <button class="open-button" onclick="Open()"></button>
     </div>
     <div class="main2">
         <h1>Welcome to school resources</h1>
