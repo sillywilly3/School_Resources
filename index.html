@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School Resources</title>
     <link rel="icon" href="https://sp.yimg.com/ib/th?id=OPHS.R61OOWGgPmQDJQ474C474&o=5&pid=21.1&w=160&h=105" type="image/x-icon">
     <style>
@@ -104,6 +106,10 @@
             color: #555;
         }
 
+        .more {
+            display: none;
+        }
+
         .back-button {
             background-color: #33809c;
             color: #fff;
@@ -137,6 +143,45 @@
             border-radius: 0 4px 0 0;
             cursor: pointer;
         }
+
+                /* Add this CSS to your existing styles */
+        .buttons-container-two {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .buttons-container-two button {
+            margin-right: 10px; /* Adjust margin as needed */
+        }
+
+        .buttons-container-two button:last-child {
+            margin-right: 0; /* Remove margin from the last button */
+        }
+
+        .buttons-container-two button::before {
+            content: attr(alt);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 1;
+        }
+
+        .buttons-container-two button:hover img {
+            filter: blur(4px);
+        }
+
+        .buttons-container-two button:hover::before {
+            opacity: 1;
+            color: #000; /* Black color */
+        }
     </style>
 </head>
 <body>
@@ -147,6 +192,7 @@
         <p>important resources for education.</p>
         <p>I promise this is real you can check the whole website. No secrets, just want to help.</p>
         <button onclick="forTeachers()">For Teachers</button>
+        <button onclick="bringToMore()">More...</button>
         <br>
         <h2>School websites</h2>
         <div class="buttons-container">
@@ -159,9 +205,12 @@
             <button onclick="Quizlet()" alt="Quizlet">
                 <img src="https://avatars3.githubusercontent.com/u/616547?s=200&v=4" alt="Quizlet">
             </button>
-           
+           <button onclick="Blooket()" alt="Blooket">
+                <img src="https://static.wikia.nocookie.net/logopedia/images/b/b5/Blooket.png/revision/latest/scale-to-width-down/150?cb=20211028135424" alt="Blooket">
+           </button>
         </div>
     </div>
+
     <div class="teacherInfo">
         <h1>Information</h1>
         <p>Dear Teachers, parents, or whoever is reading this,</p>
@@ -175,6 +224,19 @@
         <button class="back-button" onclick="goBack()">Back</button>
         <button class="open-button" onclick="Open()"></button>
     </div>
+
+    <div class="more">
+        <h1>More Apps</h1>
+        <div class="buttons-container-two">
+            <button onclick="Gmail()" alt="Gmail">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/013/948/544/small/gmail-logo-on-transparent-white-background-free-vector.jpg" alt="Gmail">
+            </button>
+            <button onclick="Flip()" alt="FlipGrid">
+                <img src="https://upload.wikimedia.org/wikipedia/en/6/6b/Microsoft_Flip_Logo.jpg" alt="FlipGrid">
+            </button>
+        </div>
+    </div>
+
     <div class="main2">
         <h1>Welcome to school resources</h1>
         <p>This is meant to help students navigate to important school websites</p>
@@ -194,12 +256,17 @@
             <button onclick="QuizletM()" alt="Quizlet">
                 <img src="https://avatars3.githubusercontent.com/u/616547?s=200&v=4" alt="Quizlet">
             </button>
-           
+
+            <button onclick="BlooketM()" alt="Booket">
+                 <img src="https://static.wikia.nocookie.net/logopedia/images/b/b5/Blooket.png/revision/latest/scale-to-width-down/150?cb=20211028135424" alt="Blooket">
+            </button>
         </div>
     </div>
+
     <footer>
         &copy; 2023 BeanzMan. All rights reserved.
     </footer>
+
     <script>
         function GoogleClassroom() {
             window.open("https://classroom.google.com");
@@ -209,6 +276,9 @@
         }
         function Quizlet() {
             window.open("https://quizlet.com");
+        }
+        function Blooket() {
+            window.open("https://blooket.com");
         }
 
         const Main = document.querySelector(".main");
@@ -222,6 +292,22 @@
         function goBack() {
             Main.style.display = "block";
             Info.style.display = "none";
+        }
+
+        More = document.querySelector(".more");
+
+        function bringToMore() {
+            Main.style.display = "none";
+            Info.style.display = "none";
+            More.style.display = "block";
+        }
+        
+        function Gmail() {
+            window.open("https://gmail.com");
+        }
+
+        function Flip() {
+            window.open("https://flipgrid.com");
         }
 
         const Main2 = document.querySelector(".main2");
@@ -244,6 +330,11 @@
 
         function QuizletM() {
             const audio = new Audio('https://ia801600.us.archive.org/28/items/eminem-the-singles-boxset_202303/25.%20The%20Real%20Slim%20Shady.mp3');
+            audio.play();
+        }
+ 
+        function BlooketM() {
+            const audio = new Audio('https://ia802804.us.archive.org/21/items/Mckee/MACKLEMORE%20%26%20RYAN%20LEWIS%20-%20THRIFT%20SHOP%20FEAT.%20WANZ%20%28OFFICIAL%20VIDEO%29.mp3');
             audio.play();
         }
 
