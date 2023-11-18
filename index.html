@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" href="https://sp.yimg.com/ib/th?id=OPHS.R61OOWGgPmQDJQ474C474&o=5&pid=21.1&w=160&h=105" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School Resources</title>
-    <link rel="icon" href="https://sp.yimg.com/ib/th?id=OPHS.R61OOWGgPmQDJQ474C474&o=5&pid=21.1&w=160&h=105" type="image/x-icon">
     <style>
         body {
             margin: 0;
@@ -33,6 +33,28 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 50px;
         }
+
+        .main span {
+            position: relative;
+            display: inline-block; 
+        }
+
+        .main span:hover::after {
+            content: ''; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparent; 
+            z-index: -1;
+        }
+
+        .main span:hover {
+            transform: scale(1.08);
+            box-shadow: #000;
+        }
+
 
         h1 {
             color: #33809c;
@@ -86,7 +108,7 @@
 
         .buttons-container button:hover::before {
             opacity: 1;
-            color: #000; /* Black color */
+            color: #000;
         }
 
         .buttons-container button:nth-child(2)::before {
@@ -131,6 +153,16 @@
             margin-top: 50px;
         }
 
+        .aboutUs {
+            background-color: #f5f5f5;
+            margin-left: 5px;
+            display: none;
+        }
+
+        .aboutUs p {
+            margin-left: 15px;
+        }
+
         .open-button {
             position: fixed;
             bottom: 0;
@@ -144,7 +176,6 @@
             cursor: pointer;
         }
 
-                /* Add this CSS to your existing styles */
         .buttons-container-two {
             display: flex;
             justify-content: flex-start;
@@ -153,11 +184,11 @@
         }
 
         .buttons-container-two button {
-            margin-right: 10px; /* Adjust margin as needed */
+            margin-right: 10px;
         }
 
         .buttons-container-two button:last-child {
-            margin-right: 0; /* Remove margin from the last button */
+            margin-right: 0; 
         }
 
         .buttons-container-two button::before {
@@ -180,13 +211,67 @@
 
         .buttons-container-two button:hover::before {
             opacity: 1;
-            color: #000; /* Black color */
+            color: #000;
+        }
+
+        .full-screen-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #d0e5ec;
+            color: #6980b4;
+            border: none;
+            border-radius: 50%; 
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 9999; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+        }
+
+        /* Style changes on hover */
+        .full-screen-button:hover {
+            transform: scale(1.1); /* Enlarge the button on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Modify shadow on hover */
+        }
+
+        /* Styling for the full-screen icon inside the button */
+        .full-screen-button::after {
+            content: '\2195'; /* Unicode for a double arrow indicating full screen */
+        }
+
+        .header {
+            display: flex;
+            background-color: #33809c;
+            justify-content: center;
+            height: 50px;
+        }
+
+        .header button {
+            background-color: #555;
+        }
+
+        .header button:hover {
+            transform: scale(1.001);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        #Secret {
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
+    <header class="header">
+        <button onclick="goBack()">Home</button><button onclick="bringToMore()">More Apps</button><button onclick="aboutUs()">About</button>
+    </header>
     <div class="main">
-        <h1>Welcome to school resources</h1>
+        <h1><span>Welcome</span> <span>to</span> <span>school</span> <span>resources</span></h1>
         <p>This is meant to help students navigate to important school websites</p>
         <p>School home-pages usually have most of the needs, but here are even more</p>
         <p>important resources for education.</p>
@@ -243,7 +328,7 @@
         <p>School home-pages usually have most of the needs, but here are even more</p>
         <p>important resources for education.</p>
         <p>I promise this is real you can check the whole website. No secrets, just want to help.</p>
-        <button>For Teachers</button>
+        <button onclick="backtoMain()">For Teachers</button><button onclick="error()">More...</button>
         <br>
         <h2>School websites</h2>
         <div class="buttons-container">
@@ -262,7 +347,21 @@
             </button>
         </div>
     </div>
+    <div class="aboutUs">
+        <h1>About <span id="Secret">Us</span></h1>
+        <p>About Us section coming soon...</p>
+        <p>This website is still being worked on so there may still be bugs.</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
 
+    <button class="full-screen-button" onclick="toggleFullScreen()"></button>
     <footer>
         &copy; 2023 BeanzMan. All rights reserved.
     </footer>
@@ -289,18 +388,40 @@
             Info.style.display = "block";
         }
 
+        More = document.querySelector(".more");
+        About = document.querySelector(".aboutUs")
+        const Main2 = document.querySelector(".main2");
+
         function goBack() {
             Main.style.display = "block";
             Info.style.display = "none";
+            More.style.display = "none";
+            About.style.display = "none";
+            Main2.style.display = "none";
         }
-
-        More = document.querySelector(".more");
-
+        
         function bringToMore() {
             Main.style.display = "none";
             Info.style.display = "none";
             More.style.display = "block";
+            About.style.display = "none";
+            Main2.style.display = "none";
         }
+
+        function aboutUs() {
+            Main.style.display = "none";
+            Info.style.display = "none";
+            More.style.display = "none";
+            About.style.display = "block";
+            Main2.style.display = "none";
+        }
+
+        const beanz = document.getElementById("Secret");
+
+        beanz.addEventListener("click", function() {
+            alert("HELLO!!!!!!!!!");
+        });
+        
         
         function Gmail() {
             window.open("https://gmail.com");
@@ -310,12 +431,32 @@
             window.open("https://flipgrid.com");
         }
 
-        const Main2 = document.querySelector(".main2");
-
         function Open() {
             Main2.style.display = "block";
             Info.style.display = "none";
             Main.style.display = "none";
+        }
+
+        function backtoMain() {
+            Main2.style.display = "none";
+            Info.style.display = "none";
+            Main.style.display = "block";
+        }
+
+        function error() {
+            alert("ERROR: There has been an error in our system. Please refresh the page and try again :)")
+        }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable full-screen mode: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
         }
             
         function GoogleClassroomM() {
